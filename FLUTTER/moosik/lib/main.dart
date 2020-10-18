@@ -267,31 +267,40 @@ class _MyAppState extends State<MyApp> {
                     ),
                   ],
                 ),
-                Container(
-                  height: 240.0,
-                  color: Colors.blueAccent.withOpacity(0.2),
-                  child: StreamBuilder<SequenceState>(
-                    stream: _player.sequenceStateStream,
-                    builder: (context, snapshot) {
-                      final state = snapshot.data;
-                      final sequence = state?.sequence ?? [];
-                      return ListView.builder(
-                        itemCount: sequence.length,
-                        itemBuilder: (context, index) => Material(
-                          color: index == state.currentIndex
-                              ? Colors.grey.shade300
-                              : null,
-                          child: ListTile(
-                            hoverColor: Colors.blueAccent[100].withOpacity(0.2),
-                            tileColor: Colors.blueAccent[100].withOpacity(0.2),
-                            title: Text(sequence[index].tag.title),
-                            onTap: () {
-                              _player.seek(Duration.zero, index: index);
-                            },
+                ShaderMask(
+                  shaderCallback: (Rect bounds){
+                    return LinearGradient(
+                      colors: <Color>[Colors.blueAccent[100], Colors.deepPurpleAccent[100]],
+                      tileMode: TileMode.repeated,
+                    ).createShader(bounds);
+                  },
+                  child: Container(
+                    height: 240.0,
+
+                    color: Colors.blueAccent.withOpacity(0.2),
+                    child: StreamBuilder<SequenceState>(
+                      stream: _player.sequenceStateStream,
+                      builder: (context, snapshot) {
+                        final state = snapshot.data;
+                        final sequence = state?.sequence ?? [];
+                        return ListView.builder(
+                          itemCount: sequence.length,
+                          itemBuilder: (context, index) => Material(
+                            color: index == state.currentIndex
+                                ? Colors.grey.shade300
+                                : null,
+                            child: ListTile(
+                              hoverColor: Colors.blueAccent[100].withOpacity(0.2),
+                              tileColor: Colors.blueAccent[100].withOpacity(0.2),
+                              title: Text(sequence[index].tag.title),
+                              onTap: () {
+                                _player.seek(Duration.zero, index: index);
+                              },
+                            ),
                           ),
-                        ),
-                      );
-                    },
+                        );
+                      },
+                    ),
                   ),
                 ),
               ],
