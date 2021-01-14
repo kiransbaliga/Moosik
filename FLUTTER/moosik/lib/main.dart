@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:moosik/homescreen.dart';
 import 'SongScreen.dart';
 
 void main() {
@@ -21,11 +22,14 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           title: 'Moosik',
           theme: ThemeData.dark().copyWith(
-            canvasColor: Colors.black45,
+            canvasColor: Color(0xee1c1c1c),
+            accentColor: Color(0xee1c1c1c),
+            primaryColor: Color(0xff1c1c1c),
           ),
-          initialRoute: "SongScreen",
+          initialRoute: "HomeScreen",
           routes: {
             "SongScreen": (context) => SongScreen(),
+            "HomeScreen":(context)=> HomeScreen(),
           },
         );
       });
