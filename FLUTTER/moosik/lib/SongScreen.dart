@@ -15,7 +15,7 @@ class _SongScreenState extends State<SongScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomPadding: false,
+      resizeToAvoidBottomInset: false,
       backgroundColor: Colors.black45,
       body: SafeArea(
         child: Container(
@@ -57,10 +57,10 @@ class _SongScreenState extends State<SongScreen> {
                     child: Container(
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: Colors.white12,
+                        color: Colors.lightBlue,
                         boxShadow: [
                           new BoxShadow(
-                            color: Colors.black87,
+                            color: Colors.blue,
                             offset: Offset(25.0, 25.0),
                             blurRadius: 32.0,
                           ),
@@ -90,7 +90,7 @@ class _SongScreenState extends State<SongScreen> {
                         text: "Into the Woods",
                         style: TextStyle(
                           fontSize: MediaQuery.of(context).size.height * 0.03,
-                          color: Colors.white70,
+                          color: Colors.lightBlue,
                           letterSpacing: 0.5,
                           fontWeight: FontWeight.w500,
                         ),
@@ -117,7 +117,7 @@ class _SongScreenState extends State<SongScreen> {
                   "Emily blunt & James Cordan",
                   style: TextStyle(
                     fontSize: MediaQuery.of(context).size.height * 0.015,
-                    color: Colors.white54,
+                    color: Colors.lightBlue,
                     letterSpacing: 0.5,
                     fontWeight: FontWeight.w300,
                   ),

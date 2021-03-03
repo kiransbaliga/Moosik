@@ -21,10 +21,12 @@ class MyApp extends StatelessWidget {
        
         return MaterialApp(
           title: 'Moosik',
-          theme: ThemeData.dark().copyWith(
+          theme: ThemeData(
             canvasColor: Color(0xee1c1c1c),
             accentColor: Color(0xee1c1c1c),
             primaryColor: Color(0xff1c1c1c),
+            fontFamily:'Cera',
+            
           ),
           initialRoute: "HomeScreen",
           routes: {
